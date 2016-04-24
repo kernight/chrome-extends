@@ -1,0 +1,30 @@
+{
+  "name": "图啥 网页图片查找工具 imagefinder",
+  "version": "1.0.0",
+  "description": "寻找网页中某一张图的源文件名称。
+  包括图片框的源文件和DOM中的背景图信息(css的background-image)属性等。",
+  "manifest_version": 2,
+  "browser_action": {
+     "default_icon": "icon.png",
+      "default_title": "图啥 imagefinder",
+     "default_popup": "popup.html"
+   },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "file://*/*",
+    "contextMenus"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*","file://*/*"],
+      "js": ["jquery.min.js", "content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

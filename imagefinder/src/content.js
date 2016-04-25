@@ -38,7 +38,7 @@ $("*").mousedown(function(e){
       //去除url前缀
       imgsrc = RemoveOther(imgsrc);
       console.log("找到的图片地址："+imgsrc);
-      $("body").after('<div id="imagefinderpanel" style="font-family:\'微软雅黑\',Arial;text-align:center;font-color:#000000;font-szie:12px;background-color:#ffffff;border:solid 2px #f0f0f0;z-index:'+(panel_index++)+';position:fixed;top:0;left:0;width:100%;height:50px;line-height:50px;vertical-align:top;overflow:hidden;"><span style="margin-right:30px;background-image:none;">图啥</span><img style="display:inline-block;max-width:50%;max-height:30px;" src="'+imgsrc+'" /><span style="background-image:none;margin-left:10px;">'+imgsrc+'</span></div>');
+      $("body").after('<div id="imagefinderpanel" style="font-family:\'微软雅黑\',Arial;text-align:center;font-color:#000000;font-szie:12px;background-color:#ffffff;border:solid 2px #f0f0f0;z-index:'+(panel_index++)+';position:fixed;top:0;left:0;width:100%;height:50px;line-height:50px;vertical-align:top;overflow:hidden;"><span style="margin-right:30px;background-image:none;">图啥</span><img style="display:inline-block;max-width:50%;max-height:30px;" src="'+imgsrc+'" /><span style="background-image:none;margin-left:10px;">'+imgsrc+'</span><a target="_blank"  style="color:#3498db;display:inline-block;width:100px;height:30px;line-height:3 0px;" href="'+imgsrc+'">点击打开</a></div>');
       setTimeout(function(){$("#imagefinderpanel").remove();panel_index--;},3000);
       return false;
     }
@@ -82,9 +82,9 @@ function GetUrlFromStyle(str){
  */
  function RemoveOther(str){
    //去除url(:("/')
-   str = str.replace(/.*url\((\"|\')+/,"");
+   str = str.replace(/.*url\((\"|\')*/,"");
    //去除("/'))
-   str = str.replace(/(\"|\')+\).*/,"");
+   str = str.replace(/(\"|\')*\).*/,"");
    //在前面加入 http[s]://域名/
     var domain = "";
    if(str.search(/.*:*\/\/.[^\/]*\//)){

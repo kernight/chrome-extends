@@ -1,8 +1,7 @@
 {
   "name": "图啥 网页图片查找工具 imagefinder",
-  "version": "1.0.1",
-  "description": "寻找网页中某一张图的源文件名称。
-  包括图片框的源文件和DOM中的背景图信息(css的background-image)属性等。",
+  "version": "2.0.1",
+  "description": "寻找网页中某一张图的源文件名称。包括图片框的源文件和DOM中的背景图信息(css的background-image)属性等。",
   "manifest_version": 2,
   "browser_action": {
      "default_icon": "icon.png",

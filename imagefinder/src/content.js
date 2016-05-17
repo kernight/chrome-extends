@@ -53,7 +53,8 @@ $("*").mousedown(function(e){
         //去除url前缀
         imgsrc = RemoveOther(imgsrc);
         console.log("图啥----------找到的图片地址："+imgsrc);
-        ShowDetail("test",imgsrc);
+        var name_pos = imgsrc.lastIndexOf('/');
+        ShowDetail(imgsrc.substr(name_pos+1),imgsrc);
         return false;
       }
       console.log("图啥----------未找到图片");
@@ -294,8 +295,9 @@ function ShowDetail(name,src){
     //图片缩略图
     $("#imagefinderpanel_right_img").attr("src", src).load(function () {
       //加载图片尺寸
-      $("#imagefinderpanel_right_size #width_pic").text($(this).width());
-      $("#imagefinderpanel_right_size #height_pic").text($(this).height());
+      var img_clone = $(this).clone();
+      $("#imagefinderpanel_right_size #width_pic").text(img_clone[0].width);
+      $("#imagefinderpanel_right_size #height_pic").text(img_clone[0].height);
     });
     //图片名称
     $("#imagefinderpanel_right_name").text(name);
